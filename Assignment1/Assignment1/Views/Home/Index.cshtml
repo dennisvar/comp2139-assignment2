@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h3>SportsPro Technical Support</h3>
+<p>Sports management software for the sports enthusiast</p>
+
+<h3>Admin</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <td><a asp-controller="Product" asp-action="List" style="text-decoration:none">Manage Products</a></td>
+    </tr>
+    <tr>
+        <td><a asp-controller="Technician" asp-action="List" style="text-decoration:none">Manage Technicians</a></td>
+    </tr>
+    <tr>
+        <td><a asp-controller="Customer" asp-action="List" style="text-decoration:none">Manage Customers</a></td>
+    </tr>
+    <tr>
+        <td><a asp-controller="Incident" asp-action="List" style="text-decoration:none">Manage Incidents</a></td>
+    </tr>
+    <tr>
+        <td><a asp-controller="Registration" asp-action="GetCustomer" style="text-decoration:none">Manage Registrations</a></td>
+    </tr>
+</table>
+
+<h3>Technicians</h3>
+<table class="table table-bordered">
+    <tr>
+        <td><a asp-controller="Technician" asp-action="Get" style="text-decoration:none">Update Incident</a></td>
+    </tr>
+</table>

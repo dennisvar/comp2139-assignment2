@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewBag.Title = "Product Manager";
+}
+
+
+@*if(TempData["success"] != null){
+    alert(@TempData["success"]); "MM/dd/yy H:mm:ss"
+}*@
+
+@if(TempData["success"] != null)
+{
+       <h2 style="background-color: lightblue; text-align: center;" class="p-2 rounded">@TempData["success"]</h2> 
+}
+
+<h3>Product Manager</h3>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Release Date</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.Code</td>
+                <td>@item.Name</td>
+                <td>@item.Price.ToString("C")</td>
+                <td>@item.ReleaseDate.ToString("MM/dd/yy H:mm:ss")</td>
+                <td><a asp-controller="Product" asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-sm btn-primary" role="button">Edit</a></td>
+                <td><a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ProductId"class="btn btn-sm btn-primary" role="button">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Product" asp-action="Add" class="btn btn-sm btn-primary" role="button">Add Product</a>

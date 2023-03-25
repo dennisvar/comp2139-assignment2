@@ -1,0 +1,33 @@
+﻿@model Registration
+
+@*
+    
+*@
+
+<h3>Get Customer</h3>
+<form>
+    <div>
+        <label asp-for="CustomerId"></label>
+            <select asp-for="CustomerId" class="form-control"
+                    asp-items="@(new SelectList(ViewBag.Customer, "FirstName"))">
+                <option value="0"></option>
+            </select>
+    </div>
+    <a asp-controller="Regitration" asp-action="" class="btn btn-primary">Select</a>
+</form>
+
+@{
+
+    /*Url == ?id=xxxx
+     * 
+     * The Registrations page displays the name of the selected customer and all products that have been registered for
+that customer. Or, if there are no products registered for the selected customer, this page indicates that there are no
+products registered for the selected user.
+• To register a product, the user can select a product from the Product drop-down list and click the Register button.
+This should add the product to the table of registered products for the selected customer.
+• The website should store the customer’s ID in session state. That way, the website can “remember” the current
+customer.
+• To get these pages to work correctly, you should add a linking entity class named Registration that provides a
+many-to-many relationship between the Customer and Product entities
+     */
+}

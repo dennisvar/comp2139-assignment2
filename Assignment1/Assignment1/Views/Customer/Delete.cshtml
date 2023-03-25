@@ -1,0 +1,64 @@
+﻿@model Customer
+@{
+    string title = "Confirm Deletion of Customer";
+    ViewBag.Title = title;
+}
+
+<h3>@title</h3>
+<form method="post" asp-action="Delete">
+    <div>
+        <div asp-validation-summary="All"></div>
+        <div>
+            <label>First Name</label>
+            <input asp-for="FirstName" class="form-control" />
+            
+        </div>
+        <div>
+            <label>Last Name</label>
+            <input asp-for="LastName" class="form-control" />
+            
+        </div>
+        <div>
+            <label asp-for="Address"></label>
+            <input asp-for="Address" class="form-control" />
+            
+        </div>
+        <div>
+            <label asp-for="City"></label>
+            <input asp-for="City" class="form-control" />
+            
+        </div>
+        <div>
+            <label asp-for="State"></label>
+            <input asp-for="State" class="form-control" />
+            
+        </div>
+        <div>
+            <label>Postal Code</label>
+            <input asp-for="PostalCode" class="form-control" />
+            
+        </div>
+        <div>
+            <label asp-for="Country"></label>
+            <select placeholder="Choose a country...">
+                <option class="form-control">Canada</option>
+                <option class="form-control">USA</option>
+                <option class="form-control">China</option>
+            </select>
+            
+        </div>
+        <div>
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />
+            
+        </div>
+        <div>
+            <label asp-for="Phone"></label>
+            <input asp-for="Phone" class="form-control" />
+            
+        </div>
+        <br />
+        <button type="submit" class="btn btn-danger">Delete</button> 
+        <a asp-controller="Customer" asp-action="List" class="btn btn-primary">Cancel</a>
+    </div>
+</form>

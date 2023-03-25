@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Incident>
+@{
+    ViewBag.Title = "Incident Manager";
+}
+
+
+@if(TempData["success"] != null)
+{
+       <h2 style="background-color: lightblue; text-align: center;" class="p-2 rounded">@TempData["success"]</h2> 
+}
+
+
+<h3>Incident Manager</h3>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Customer</th>
+            <th>Product</th> 
+            <th>Date Opened</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td></td>
+                <td></td>      
+                <td>@*@item.DateOpened.ToString("MM/dd/yy H:mm:ss")*@</td>
+                <td><a asp-controller="Incident" asp-action="Edit" asp-route-id="@item.IncidentId" class="btn btn-sm btn-primary" role="button">Edit</a></td>
+                <td><a asp-controller="Incident" asp-action="Delete" asp-route-id="@item.IncidentId" class="btn btn-sm btn-primary" role="button">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Incident" asp-action="Add" class="btn btn-sm btn-primary" role="button">Add Incident</a>

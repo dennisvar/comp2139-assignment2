@@ -1,0 +1,26 @@
+﻿@model Technician
+@{
+    //ViewBag.Title = "Add Product";
+}
+
+<h3>Delete Technician</h3>
+<form method="post" asp-action="DeletePost">
+    <input asp-for="TechnicianId" hidden/>
+    <div>
+        <div class="row">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="row">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+        <div class="row">
+            <label asp-for="Phone"></label>
+            <input asp-for="Phone" class="form-control" />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-danger">Delete</button> 
+        <a asp-controller="Technician" asp-action="List" class="btn btn-primary">Cancel</a>
+    </div>
+</form>

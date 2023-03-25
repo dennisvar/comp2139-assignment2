@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Technician>
+
+@{
+    ViewBag.Title = "Technician Manager";
+}
+
+@if(TempData["success"] != null)
+{
+       <h2 style="background-color: lightblue; text-align: center;" class="p-2 rounded">@TempData["success"]</h2> 
+}
+
+<h3>Technician Manager</h3>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td class="text-primary"><u>@item.Phone</u></td>
+                <td><a class="btn btn-sm btn-primary" role="button" asp-controller="Technician" asp-action="Edit" asp-route-id="@item.TechnicianId">Edit</a></td>
+                <td><a class="btn btn-sm btn-primary" role="button" asp-controller="Technician" asp-action="Delete" asp-route-id="@item.TechnicianId">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-sm btn-primary" role="button" asp-controller="Technician" asp-action="Add">Add Technician</a>
